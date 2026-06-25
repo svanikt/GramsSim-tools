@@ -377,7 +377,7 @@
     and Cerenkov light. Treat them separately. -->
     <option name="scint" value="true" type="boolean" 
 	    desc="turn on/off scintillation light" /> 
-    <option name="cerenkov" value="true" type="boolean" 
+    <option name="cerenkov" value="false" type="boolean" 
 	    desc="turn on/off Cerenkov light" /> 
 
     <!-- Display available physics lists. --> 
@@ -633,6 +633,7 @@
     2 = Log of normalized gaussian
     3 = Log of gaussian
     4 = Double exponential
+    5 = 3rd Order Semi-Gaussian
     -->
     <option name="preamp_func"          value="5"       type="int"    desc="curve type of preamp output"/>
     <option name="preamp_prior_time"    value="0.0"     type="double" desc="rise time"/>
@@ -856,8 +857,8 @@
 	 readout.-->
     
     <!-- general information -->
-    <option name="op_timebin_width"        value="10.0"     type="double" desc="time bin width in this framework"/>
-    <option name="op_time_window"          value="200000.0" type="double" desc="sampling width"/>
+    <option name="op_timebin_width"        value="15.625"   type="double" desc="time bin width in this framework"/>
+    <option name="op_time_window"          value="20000.0" type="double" desc="sampling width"/>
 
     <!-- Preamp -->
     <!-- Valid values of preamp_func are:
@@ -866,6 +867,7 @@
     2 = Log of normalized gaussian
     3 = Log of gaussian
     4 = Double exponential
+    5 = 3rd Order Semi-Gaussian
     -->
     <option name="op_preamp_func"          value="5"       type="int"    desc="curve type of preamp output"/>
     <option name="op_preamp_prior_time"    value="0.0"     type="double" desc="rise time"/>
@@ -875,12 +877,12 @@
     <option name="op_preamp_sigma"         value="400.0"   type="double" desc="sampling width"/>
     <option name="op_preamp_tau1"          value="100.0"   type="double" desc="tau1 in two exp model"/>
     <option name="op_preamp_tau2"          value="500.0"   type="double" desc="tau2 in two exp model"/>
-    <option name="op_preamp_gain"          value="31250"   type="double" desc="photonelecton->voltage [mV/fC]"/>
-    <option name="op_preamp_amp"           value="1236.25" type="double" desc="semi-Gauss model amplitude"/>
-    <option name="op_preamp_tp"            value="9163.78" type="double" desc="semi-Gauss model peaking time [ns]"/>
-    <option name="op_preamp_A0"            value="8.62801" type="double" desc="semi-Gauss model shaping term A0"/>
-    <option name="op_preamp_A1"            value="1.96116" type="double" desc="semi-Gauss model shaping term A1"/>
-    <option name="op_preamp_W1"            value="1.02976" type="double" desc="semi-Gauss model shaping term W1"/>
+    <option name="op_preamp_gain"          value="98.0"   type="double" desc="photoelectron->voltage [mV/fC]"/>
+    <option name="op_preamp_amp"           value="12.842332" type="double" desc="semi-Gauss model amplitude"/>
+    <option name="op_preamp_tp"            value="68.855" type="double" desc="semi-Gauss model peaking time [ns]"/>
+    <option name="op_preamp_A0"            value="0.541400" type="double" desc="semi-Gauss model shaping term A0"/>
+    <option name="op_preamp_A1"            value="1.661921" type="double" desc="semi-Gauss model shaping term A1"/>
+    <option name="op_preamp_W1"            value="0.989610" type="double" desc="semi-Gauss model shaping term W1"/>
 
     <!-- add noise -->
     <option name="op_noise_param0"     value="0.0"     type="double" desc="0th order"/>
@@ -889,14 +891,14 @@
 
     <!-- AD converter -->
     <option name="op_bit_resolution"   value="12"      type="int"      desc="resolution of ADC [bit]"/>
-    <option name="op_input_min"        value="0.0"     type="double"   desc="minimum input of ADC [mV]"/>
-    <option name="op_input_max"        value="1500.0"  type="double"   desc="maximum input of ADC [mV]"/>
-    <option name="op_sample_freq"      value="2.0"     type="double"   desc="sampling frequency of ADC [MHz]"/>
+    <option name="op_input_min"        value="-233.75"     type="double"   desc="minimum input of ADC [mV]"/>
+    <option name="op_input_max"        value="233.75"   type="double"   desc="maximum input of ADC [mV]"/>
+    <option name="op_sample_freq"      value="64.0"    type="double"   desc="sampling frequency of ADC [MHz]"/>
 
     <!-- OpDet parameters - these are unique to opdetsim -->
 
     <!-- Be mindful of this option. See OPDETSIM.md for details. -->
-    <option name="op_pe_efficiency"    value="1.0"     type="double"   desc="efficiency for PE conversion" />
+    <option name="op_pe_efficiency"    value="0.3"     type="double"   desc="efficiency for PE conversion" />
 
   </opdetsim>
   

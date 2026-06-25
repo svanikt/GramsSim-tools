@@ -2,9 +2,9 @@
 """
 run_sim.py
 Author: Svanik Tandon
-Date: 2025-01-25
-
-Run full GramsSim chain for all particles.
+Date: 2026-01-25
+Allows you to run configurable portions of the GramsSim chain for specific set of particles. Bill Seligman
+has a similar version of this built into GramsSim as well (./runsim), but this is a bit more 
 
 Runs: gramssky -> gramsg4 -> gramsdetsim -> gramsreadoutsim -> gramselecsim
 
@@ -14,8 +14,6 @@ Usage:
     python run_sim.py
     python run_sim.py --particles photon proton
     python run_sim.py --stop-after gramsg4
-
-Written by Svanik Tandon, January 2026
 """
 import argparse
 import os
@@ -36,7 +34,8 @@ def run_stage(exe, options_file, args_list):
     cmd = [exe, options_file] + args_list
     print(f"    {' '.join(cmd)}")
 
-    result = subprocess.run(cmd, capture_output=True, text=True)
+    # Run from GS_DIR so relative paths in options.xml work
+    result = subprocess.run(cmd, capture_output=True, text=True, cwd=GS_DIR)
     if result.returncode != 0:
         print(f"[ERROR] {os.path.basename(exe)} failed:")
         print(result.stderr[:500] if result.stderr else "(no stderr)")

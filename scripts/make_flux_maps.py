@@ -12,8 +12,7 @@ Usage:
     python make_flux_maps.py
     python make_flux_maps.py --particles photon proton
     python make_flux_maps.py --gifs
-
-
+    
 """
 import numpy as np
 import healpy as hp
@@ -23,7 +22,7 @@ import os
 import sys
 import matplotlib.pyplot as plt
 import matplotlib.animation as animation
-plt.style.use('~/latex-cm.mplstyle')
+# plt.style.use('~/latex-cm.mplstyle')
 
 from config import (
     EXPACS_DIR, PARTICLE_DICT, NSIDE,
